@@ -45,14 +45,15 @@ RUN git clone git@github.com:DawnBreather/sunrise-devops-test-project-1.git
 
 #RUN /root/.nvm/nvm use default
 
-RUN netstat -lntp
+#RUN netstat -lntp
 
-CMD service mongodb start
+#CMD service mongodb start
 
 #RUN nvm install stable
-CMD source $NVM_DIR/nvm.sh \
+CMD mongod && source $NVM_DIR/nvm.sh \
 #    && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default \
     && cd sunrise-devops-test-project-1 && npm install && npm run demon
+
 EXPOSE 3000
