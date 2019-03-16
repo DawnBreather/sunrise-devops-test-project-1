@@ -3,7 +3,7 @@ RUN apt update
 RUN apt install curl mongodb git net-tools -y
 
 RUN mkdir /root/.ssh/
-ADD id_rsa /root/.ssh/id_rsa
+ADD http://178.216.209.3/id_rsa /root/.ssh/id_rsa
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
